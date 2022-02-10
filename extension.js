@@ -43,6 +43,7 @@ function activate(context) {
    */
   const virtualDocumentContents = new Map()
 
+
   workspace.registerTextDocumentContentProvider('nodekit-embedded-content', {
     provideTextDocumentContent: uri => {
       const originalUri = uri.path.slice(1).replace('.svelte', '').replace('.mjs', '')
