@@ -35,14 +35,13 @@ function activate(context) {
       transport: TransportKind.ipc,
       options: debugOptions
     }
-  };
+  }
 
   /**
    * @contant
    * @type Map<string, string>
    */
   const virtualDocumentContents = new Map()
-
 
   workspace.registerTextDocumentContentProvider('nodekit-embedded-content', {
     provideTextDocumentContent: uri => {
@@ -87,15 +86,10 @@ function activate(context) {
         )
       }
     }
-  };
+  }
 
   // Create and start language client.
-  client = new LanguageClient(
-    'nodekit',
-    'NodeKit',
-    serverOptions,
-    clientOptions
-  );
+  client = new LanguageClient('nodekit', 'NodeKit', serverOptions, clientOptions)
 
   // Start client (also launches server).
   client.start()
